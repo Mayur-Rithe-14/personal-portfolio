@@ -10,15 +10,22 @@ connectDB();
 const app = express();
 
 // Middleware
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:3000",
+  process.env.CORS_ORIGIN,
+];
 
 app.use(
   cors({
     origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
       } else {
-        callback(new Error("Not allowed by CORS"));
+        console.log("Blocked by CORS:", origin);
+        return callback(null, false);
       }
     },
     credentials: true,
