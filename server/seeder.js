@@ -24,8 +24,8 @@ const projects = [
       "Passport Local Strategy",
       "Express Session",
     ],
-    liveLink: "https://example.com",
-    githubLink: "https://github.com/...",
+    liveLink: "https://todo-app-i3zo.onrender.com",
+    githubLink: "https://github.com/Mayur-Rithe-14/todo-app",
   },
   {
     title: "Wanderlust Travel Website",
