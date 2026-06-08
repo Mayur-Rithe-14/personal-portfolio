@@ -1,4 +1,6 @@
 // client/src/components/Skills.jsx
+
+require("dotenv").config("../.env");
 import {useState, useEffect} from "react";
 import {FaTools} from "react-icons/fa";
 import "./Skills.css";

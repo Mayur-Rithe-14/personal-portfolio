@@ -1,4 +1,6 @@
 // client/src/components/Contact.jsx
+
+require("dotenv").config("../.env");
 import {useState} from "react";
 import "./contact.css";
 

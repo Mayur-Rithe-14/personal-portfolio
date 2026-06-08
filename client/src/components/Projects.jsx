@@ -1,5 +1,6 @@
 // client/src/components/Projects.jsx
 
+require("dotenv").config("../.env");
 import {useState, useEffect} from "react";
 import {FiExternalLink, FiGithub} from "react-icons/fi";
 import "./Projects.css";
