@@ -4,18 +4,27 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 
-// Connect to database
 connectDB();
 
 const app = express();
+app.set("trust proxy", 1);
 
 // Middleware
+const allowedOrigins = ["http://localhost:5173", process.env.CORS_ORIGIN];
+
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN || "http://localhost:5173",
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error("Not allowed by CORS"));
+    },
     credentials: true,
   }),
 );
+
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
@@ -29,7 +38,7 @@ app.get("/api/health", (req, res) => {
   res.json({status: "Server is running"});
 });
 
-// Error handling middleware
+// Error handling
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({
@@ -38,7 +47,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-// 404 handler
+// 404
 app.use((req, res) => {
   res.status(404).json({
     success: false,
@@ -48,6 +57,6 @@ app.use((req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
