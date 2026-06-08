@@ -4,8 +4,6 @@ A modern full-stack portfolio website built with the MERN stack to showcase my p
 
 ## 🌐 Live Demo
 
-Add your deployed portfolio link here:
-
 https://your-portfolio-link.com
 
 ---
