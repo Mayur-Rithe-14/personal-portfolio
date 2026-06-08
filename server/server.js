@@ -13,13 +13,12 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
-  process.env.CORS_ORIGIN,
+  "https://personal-portfolio-e6ma33s5x-mayur-rithe-s-projects.vercel.app",
 ];
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      // allow mobile apps, Postman, server-to-server
+    origin: function (origin, callback) {
       if (!origin) return callback(null, true);
 
       if (allowedOrigins.includes(origin)) {
@@ -27,10 +26,10 @@ app.use(
       }
 
       console.log("❌ Blocked by CORS:", origin);
-      return callback(null, false);
+      return callback(new Error("Not allowed by CORS"));
     },
     credentials: true,
-  })
+  }),
 );
 
 app.use(express.json());
