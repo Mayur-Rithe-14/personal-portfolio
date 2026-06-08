@@ -117,8 +117,11 @@ export default function Skills() {
                 >
                   <h3>{category}</h3>
                   <div className="skill-items">
-                    {skillList.map((skill) => (
-                      <div key={skill._id} className="skill-item">
+                    {skillList.map((skill, i) => (
+                      <div
+                        key={skill._id || `${category}-${skill.name}-${i}`}
+                        className="skill-item"
+                      >
                         <span className="skill-icon">
                           {skillIcons[skill.name] ? (
                             skillIcons[skill.name]

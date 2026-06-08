@@ -12,7 +12,7 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN || "http://localhost:5173",
+    origin: ["http://localhost:5173", "https://your-vercel-app.vercel.app"],
     credentials: true,
   }),
 );
