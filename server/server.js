@@ -12,10 +12,17 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://your-vercel-app.vercel.app"],
+    origin: [
+      "http://localhost:5173",
+      "https://personal-portfolio-j0a27jeow-mayur-rithe-s-projects.vercel.app"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
-  }),
+  })
 );
+
+app.options("*", cors());
+
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
