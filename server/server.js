@@ -10,35 +10,12 @@ connectDB();
 const app = express();
 
 // Middleware
-// app.use(
-//   cors({
-//     origin: [
-//       "http://localhost:5173",
-//       "https://personal-portfolio-j0a27jeow-mayur-rithe-s-projects.vercel.app"
-//     ],
-//     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-//     credentials: true,
-//   })
-// );
-
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://personal-portfolio-j0a27jeow-mayur-rithe-s-projects.vercel.app",
-];
-
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
-      callback(new Error("Not allowed by CORS"));
-    },
+    origin: process.env.CORS_ORIGIN || "http://localhost:5173",
     credentials: true,
   }),
 );
-
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 

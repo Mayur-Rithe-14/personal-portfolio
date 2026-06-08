@@ -25,7 +25,7 @@ const projects = [
       "Express Session",
     ],
     liveLink: "https://todo-app-i3zo.onrender.com",
-    githubLink: "https://github.com/Mayur-Rithe-14/todo-app.git",
+    githubLink: "https://github.com/Mayur-Rithe-14/todo-app",
   },
   {
     title: "Wanderlust Travel Website",

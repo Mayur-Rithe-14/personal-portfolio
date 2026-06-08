@@ -14,13 +14,11 @@ export default function Projects() {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/projects`,
-      );
+      const response = await fetch("http://localhost:5000/api/projects");
       const data = await response.json();
 
       if (data.success) {
-        setProjects(data.data || data.projects || []);
+        setProjects(data.data);
       }
     } catch (error) {
       console.error("Error fetching projects:", error);
@@ -46,7 +44,7 @@ export default function Projects() {
           <div className="projects-grid">
             {projects.map((project, index) => (
               <div
-                key={project._id || `${project.title}-${index}`}
+                key={project._id || project.title}
                 className="project-card card"
                 style={{animationDelay: `${index * 0.1}s`}}
               >
