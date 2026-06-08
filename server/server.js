@@ -18,18 +18,19 @@ const allowedOrigins = [
 
 app.use(
   cors({
-    origin: function (origin, callback) {
+    origin: (origin, callback) => {
+      // allow mobile apps, Postman, server-to-server
       if (!origin) return callback(null, true);
 
       if (allowedOrigins.includes(origin)) {
         return callback(null, true);
-      } else {
-        console.log("Blocked by CORS:", origin);
-        return callback(null, false);
       }
+
+      console.log("❌ Blocked by CORS:", origin);
+      return callback(null, false);
     },
     credentials: true,
-  }),
+  })
 );
 
 app.use(express.json());
