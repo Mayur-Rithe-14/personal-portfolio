@@ -4,8 +4,17 @@ const nodemailer = require("nodemailer");
 exports.sendMessage = async (req, res) => {
   try {
     const {name, email, message} = req.body;
+
     const contact = await Contact.create({name, email, message});
 
+    // ✅ Respond immediately (prevents frontend freeze)
+    res.status(201).json({
+      success: true,
+      message: "Message sent successfully",
+      data: contact,
+    });
+
+    // ✅ Email runs in background (non-blocking)
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -14,22 +23,26 @@ exports.sendMessage = async (req, res) => {
       },
     });
 
-    const mailOptions = {
-      from: process.env.EMAIL,
-      to: process.env.EMAIL,
-      subject: `New Portfolio Message from ${name}`,
-      html: `<h2>New Message from ${name}</h2><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong></p><p>${message}</p>`,
-    };
-
-    await transporter.sendMail(mailOptions);
-
-    res.status(201).json({
-      success: true,
-      message: "Message sent successfully",
-      data: contact,
-    });
+    transporter
+      .sendMail({
+        from: process.env.EMAIL,
+        to: process.env.EMAIL,
+        subject: `New Portfolio Message from ${name}`,
+        html: `
+        <h2>New Message</h2>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Message:</b> ${message}</p>
+      `,
+      })
+      .catch((err) => console.error("Email error:", err));
   } catch (error) {
-    res.status(400).json({success: false, message: error.message});
+    console.error("Contact error:", error);
+
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
   }
 };
 
