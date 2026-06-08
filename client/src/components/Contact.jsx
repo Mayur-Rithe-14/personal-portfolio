@@ -1,6 +1,5 @@
 // client/src/components/Contact.jsx
 
-require("dotenv").config("../.env");
 import {useState} from "react";
 import "./contact.css";
 
@@ -30,7 +29,7 @@ export default function Contact() {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/projects`,
+        `${import.meta.env.VITE_API_URL}/api/contact`,
         {
           method: "POST",
           headers: {
