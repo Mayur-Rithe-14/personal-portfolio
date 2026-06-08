@@ -1,0 +1,90 @@
+/* client/src/components/About.css */
+
+.about {
+  padding: 80px 0;
+  background: var(--bg-primary);
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.about-card {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 35px;
+  transition: all 0.3s ease;
+}
+
+.about-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.15);
+}
+
+.about-card h3 {
+  margin-bottom: 20px;
+  color: var(--primary);
+  font-size: 1.8rem;
+}
+
+.about-card p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.highlight-box {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.highlight-box:hover {
+  border-color: var(--primary);
+  transform: translateY(-5px);
+}
+
+.highlight-box h4 {
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.highlight-box p {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 60px 0;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card {
+    padding: 25px;
+  }
+
+  .about-card h3 {
+    font-size: 1.5rem;
+  }
+}
