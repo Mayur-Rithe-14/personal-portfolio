@@ -1,7 +1,7 @@
 // client/src/components/Projects.jsx
 
-import { useState, useEffect } from "react";
-import { FiExternalLink, FiGithub } from "react-icons/fi";
+import {useState, useEffect} from "react";
+import {FiExternalLink, FiGithub} from "react-icons/fi";
 import "./Projects.css";
 
 export default function Projects() {
@@ -14,9 +14,7 @@ export default function Projects() {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/projects`
-      );
+      const response = await fetch("http://localhost:5000/api/projects");
       const data = await response.json();
 
       if (data.success) {
@@ -48,7 +46,7 @@ export default function Projects() {
               <div
                 key={project._id || project.title}
                 className="project-card card"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                style={{animationDelay: `${index * 0.1}s`}}
               >
                 <div className="project-image">
                   <img
