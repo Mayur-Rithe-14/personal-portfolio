@@ -14,14 +14,12 @@ export default function Projects() {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/projects`,
-      );
+      const API = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
+      const response = await fetch(`${API}/api/projects`);
       const data = await response.json();
 
-      if (data.success) {
-        setProjects(data.data);
-      }
+      setProjects(data.data || []);
     } catch (error) {
       console.error("Error fetching projects:", error);
       setProjects([]);
