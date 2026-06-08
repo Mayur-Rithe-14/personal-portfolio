@@ -97,7 +97,7 @@ Add screenshots of your portfolio here.
 
 ### Home Section
 
-![Home](./screenshots/Hore-Section.png)
+![Home](./screenshots/Hero-Section.png)
 
 ### Projects Section
 
