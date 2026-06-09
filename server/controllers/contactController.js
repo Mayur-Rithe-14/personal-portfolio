@@ -66,41 +66,47 @@ exports.sendMessage = async (req, res) => {
   try {
     const {name, email, message} = req.body;
 
-    // 1. Save message in DB
     const contact = await Contact.create({name, email, message});
 
-    // 2. Create Gmail transporter
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL,
-        pass: process.env.EMAIL_PASSWORD,
-      },
-    });
-
-    // 3. Send email (IMPORTANT: await it)
-    await transporter.sendMail({
-      from: process.env.EMAIL,
-      to: process.env.EMAIL,
-      subject: `New Portfolio Message from ${name}`,
-      html: `
-        <h2>New Message Received</h2>
-        <p><b>Name:</b> ${name}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>Message:</b> ${message}</p>
-      `,
-    });
-
-    // 4. Send response AFTER email success
-    return res.status(201).json({
+    // Respond immediately (NO WAIT)
+    res.status(201).json({
       success: true,
       message: "Message sent successfully",
       data: contact,
     });
+
+    // Send email in background safely
+    setImmediate(async () => {
+      try {
+        const transporter = nodemailer.createTransport({
+          service: "gmail",
+          auth: {
+            user: process.env.EMAIL,
+            pass: process.env.EMAIL_PASSWORD,
+          },
+        });
+
+        await transporter.sendMail({
+          from: process.env.EMAIL,
+          to: process.env.EMAIL,
+          subject: `New Portfolio Message from ${name}`,
+          html: `
+            <h2>New Message Received</h2>
+            <p><b>Name:</b> ${name}</p>
+            <p><b>Email:</b> ${email}</p>
+            <p><b>Message:</b> ${message}</p>
+          `,
+        });
+
+        console.log("Email sent successfully");
+      } catch (err) {
+        console.error("Email error:", err);
+      }
+    });
   } catch (error) {
     console.error("Contact error:", error);
 
-    return res.status(500).json({
+    res.status(500).json({
       success: false,
       message: error.message,
     });
