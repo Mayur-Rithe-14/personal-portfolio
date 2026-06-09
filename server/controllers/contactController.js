@@ -106,3 +106,16 @@ exports.sendMessage = async (req, res) => {
     });
   }
 };
+
+exports.getMessages = async (req, res) => {
+  try {
+    const messages = await Contact.find().sort({createdAt: -1});
+    res.status(200).json({
+      success: true,
+      count: messages.length,
+      data: messages,
+    });
+  } catch (error) {
+    res.status(500).json({success: false, message: error.message});
+  }
+};
