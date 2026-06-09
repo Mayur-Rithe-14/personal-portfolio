@@ -1,5 +1,6 @@
 const Contact = require("../models/contact");
 const {Resend} = require("resend");
+const getEmailHTML = require("../templates/emailTemplate");
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
