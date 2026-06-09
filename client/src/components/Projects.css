@@ -12,6 +12,14 @@
   margin-bottom: 60px;
 }
 
+.projects-slider {
+  padding-bottom: 60px;
+}
+
+.projects-slider .swiper-slide {
+  height: auto;
+}
+
 .section-subtitle {
   font-size: 1.1rem;
   color: var(--text-secondary);
@@ -53,19 +61,29 @@
   box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
 }
 
-.projects-grid::-webkit-scrollbar {
-  display: none;
-}
-
 /* Projects Grid */
-.projects-grid {
+/* .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 24px;
   align-items: start;
+} */
+
+.projects-grid::-webkit-scrollbar {
+  display: none;
 }
 
+/* .project-card {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s ease;
+} */
+
 .project-card {
+  height: 100%;
   border-radius: 14px;
   overflow: hidden;
   background: #fff;
@@ -74,9 +92,17 @@
   transition: 0.3s ease;
 }
 
-.project-image {
+/* .project-image {
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+} */
+
+.project-image {
+  position: relative;
+  width: 100%;
+  height: 220px;
   overflow: hidden;
   border-radius: 12px 12px 0 0;
 }
@@ -147,11 +173,23 @@
   font-size: 1.3rem;
 }
 
+/* .project-card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  line-height: 1.5;
+} */
+
 .project-card p {
   font-size: 0.95rem;
   color: var(--text-secondary);
   margin-bottom: 20px;
   line-height: 1.5;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* Tech Tags */
@@ -189,6 +227,19 @@
   padding: 60px 20px;
   color: var(--text-secondary);
   font-size: 1.1rem;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--primary);
+}
+
+.swiper-pagination-bullet {
+  background: var(--primary);
+}
+
+.swiper-pagination {
+  margin-top: 20px;
 }
 
 @media (max-width: 768px) {
