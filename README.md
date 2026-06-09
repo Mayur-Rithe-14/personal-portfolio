@@ -16,17 +16,16 @@ This portfolio website serves as a central place to showcase my development work
 
 ## ✨ Features
 
-- Responsive and modern user interface
-- Dynamic Projects Section
-- Skills Showcase with Technology Icons
-- Contact Form Integration
-- MongoDB Database Integration
-- RESTful API Architecture
-- Mobile-Friendly Design
-- Clean Component-Based Structure
-- Project Screenshot Support
-- Easy Content Management with Database Seeding
+✨ Features
 
+* **Responsive Design** - Mobile, tablet, and desktop optimized
+* **Dynamic Projects Section** - Showcase your best work with descriptions
+* **Skills Showcase** - Categorized tech stack with icons
+* **Contact Form** - Send messages directly with email notifications
+* **MongoDB Integration** - Store projects, skills, and contact messages
+* **RESTful API** - Well-structured backend endpoints
+* **Email Notifications** - Receive contact form submissions via email (Resend)
+* **Mobile-Friendly** - Works seamlessly on all devices
 ---
 
 ## 🛠️ Tech Stack
