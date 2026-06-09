@@ -38,27 +38,19 @@ exports.sendMessage = async (req, res) => {
 
 const sendEmailAsync = async (name, email, message) => {
   try {
+    const htmlContent = getEmailHTML(name, email, message);
+
     await resend.emails.send({
-      from: `Portfolio Contact <onboarding@resend.dev>`, // Default Resend sender
-      to: process.env.EMAIL, // Your email
-      replyTo: email, // Visitor's email
+      from: `Portfolio Contact <onboarding@resend.dev>`,
+      to: process.env.EMAIL,
+      replyTo: email,
       subject: `New Portfolio Message from ${name}`,
-      html: `
-        <div style="font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5;">
-          <h2 style="color: #333;">New Message Received</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Message:</strong></p>
-          <p style="white-space: pre-wrap; background: white; padding: 15px; border-left: 4px solid #007bff;">${message}</p>
-          <hr>
-          <p style="color: #666; font-size: 12px;">Reply directly to this email to respond to ${name}</p>
-        </div>
-      `,
+      html: htmlContent,
     });
 
-    console.log("✅ Email sent successfully to:", process.env.EMAIL);
+    console.log("Email sent successfully to:", process.env.EMAIL);
   } catch (error) {
-    console.error("❌ Email failed:", error.message);
+    console.error("Email failed:", error.message);
   }
 };
 
