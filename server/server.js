@@ -6,6 +6,26 @@ const connectDB = require("./config/db");
 
 connectDB();
 
+// ✅ ADD THIS DEBUGGING SECTION
+const testEmailConfig = async () => {
+  try {
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL,
+        pass: process.env.EMAIL_PASSWORD,
+      },
+    });
+
+    await transporter.verify();
+    console.log("✅ Email configuration verified successfully!");
+  } catch (error) {
+    console.error("❌ Email configuration failed:", error.message);
+  }
+};
+
+testEmailConfig();
+
 const app = express();
 app.set("trust proxy", 1);
 
