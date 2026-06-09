@@ -39,8 +39,8 @@ const sendEmailAsync = async (name, email, message) => {
   try {
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
-      port: 587, // ← CHANGED FROM 465
-      secure: false, // ← CHANGED FROM true (use STARTTLS instead of SSL)
+      port: 587,
+      secure: false,
       auth: {
         user: process.env.EMAIL,
         pass: process.env.EMAIL_PASSWORD,
@@ -49,23 +49,29 @@ const sendEmailAsync = async (name, email, message) => {
       socketTimeout: 5000,
     });
 
-    await transporter.sendMail({
-      from: `"Your Portfolio" <${process.env.EMAIL}>`,
-      to: process.env.EMAIL,
-      replyTo: email,
+    const mailOptions = {
+      from: `"Portfolio Contact" <${process.env.EMAIL}>`,
+      to: process.env.EMAIL, // Your email
+      replyTo: email, // Visitor's email (so you can reply to them)
       subject: `New Portfolio Message from ${name}`,
       html: `
-        <div style="font-family: Arial, sans-serif; padding: 20px;">
-          <h2>New Message Received</h2>
+        <div style="font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5;">
+          <h2 style="color: #333;">New Message Received</h2>
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Message:</strong></p>
-          <p style="white-space: pre-wrap;">${message}</p>
+          <p style="white-space: pre-wrap; background: white; padding: 15px; border-left: 4px solid #007bff;">${message}</p>
+          <hr>
+          <p style="color: #666; font-size: 12px;">You can reply directly to this email to respond to ${name}</p>
         </div>
       `,
-    });
+    };
 
-    console.log("✅ Email sent to:", process.env.EMAIL);
+    const info = await transporter.sendMail(mailOptions);
+    console.log("✅ Email sent successfully!");
+    console.log("   To:", mailOptions.to);
+    console.log("   From sender:", email);
+    console.log("   Message ID:", info.messageId);
   } catch (error) {
     console.error("❌ Email failed:", error.message);
   }
