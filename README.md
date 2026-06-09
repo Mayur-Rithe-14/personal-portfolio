@@ -16,16 +16,15 @@ This portfolio website serves as a central place to showcase my development work
 
 ## ✨ Features
 
-✨ Features
+- **Responsive Design** - Mobile, tablet, and desktop optimized
+- **Dynamic Projects Section** - Showcase your best work with descriptions
+- **Skills Showcase** - Categorized tech stack with icons
+- **Contact Form** - Send messages directly with email notifications
+- **MongoDB Integration** - Store projects, skills, and contact messages
+- **RESTful API** - Well-structured backend endpoints
+- **Email Notifications** - Receive contact form submissions via email (Resend)
+- **Mobile-Friendly** - Works seamlessly on all devices
 
-* **Responsive Design** - Mobile, tablet, and desktop optimized
-* **Dynamic Projects Section** - Showcase your best work with descriptions
-* **Skills Showcase** - Categorized tech stack with icons
-* **Contact Form** - Send messages directly with email notifications
-* **MongoDB Integration** - Store projects, skills, and contact messages
-* **RESTful API** - Well-structured backend endpoints
-* **Email Notifications** - Receive contact form submissions via email (Resend)
-* **Mobile-Friendly** - Works seamlessly on all devices
 ---
 
 ## 🛠️ Tech Stack
@@ -145,6 +144,17 @@ Create a `.env` file inside the `server` folder:
 ```env
 PORT=5000
 MONGODB_URI=your_mongodb_connection_string
+NODE_ENV=production
+CORS_ORIGIN=https://your-frontend-domain.com
+EMAIL=your-email@gmail.com
+RESEND_API_KEY=your_resend_api_key
+```
+
+Create a `.env` file inside the `client` folder:
+
+```env
+VITE_API_URL=https://your-backend-url.com
+
 ```
 
 ### Seed Database
@@ -217,8 +227,4 @@ Email: [mayurrithe2004@gmail.com](mailto:mayurrithe2004@gmail.com)
 
 If you like this project, consider giving it a star on GitHub.
 
----
 
-## 📄 License
-
-This project is licensed under the MIT License.
