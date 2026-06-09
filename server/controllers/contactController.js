@@ -1,5 +1,7 @@
 const Contact = require("../models/contact");
-const nodemailer = require("nodemailer");
+const {Resend} = require("resend");
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 exports.sendMessage = async (req, res) => {
   try {
@@ -12,10 +14,10 @@ exports.sendMessage = async (req, res) => {
       });
     }
 
-    // Save to database FIRST
+    // Save to database
     const contact = await Contact.create({name, email, message});
 
-    // Send email in background (non-blocking)
+    // Send email in background
     sendEmailAsync(name, email, message).catch((err) => {
       console.error("Email send error:", err.message);
     });
@@ -34,25 +36,12 @@ exports.sendMessage = async (req, res) => {
   }
 };
 
-// Send email asynchronously
 const sendEmailAsync = async (name, email, message) => {
   try {
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 587,
-      secure: false,
-      auth: {
-        user: process.env.EMAIL,
-        pass: process.env.EMAIL_PASSWORD,
-      },
-      connectionTimeout: 5000,
-      socketTimeout: 5000,
-    });
-
-    const mailOptions = {
-      from: `"Portfolio Contact" <${process.env.EMAIL}>`,
+    await resend.emails.send({
+      from: `Portfolio Contact <onboarding@resend.dev>`, // Default Resend sender
       to: process.env.EMAIL, // Your email
-      replyTo: email, // Visitor's email (so you can reply to them)
+      replyTo: email, // Visitor's email
       subject: `New Portfolio Message from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5;">
@@ -62,16 +51,12 @@ const sendEmailAsync = async (name, email, message) => {
           <p><strong>Message:</strong></p>
           <p style="white-space: pre-wrap; background: white; padding: 15px; border-left: 4px solid #007bff;">${message}</p>
           <hr>
-          <p style="color: #666; font-size: 12px;">You can reply directly to this email to respond to ${name}</p>
+          <p style="color: #666; font-size: 12px;">Reply directly to this email to respond to ${name}</p>
         </div>
       `,
-    };
+    });
 
-    const info = await transporter.sendMail(mailOptions);
-    console.log("✅ Email sent successfully!");
-    console.log("   To:", mailOptions.to);
-    console.log("   From sender:", email);
-    console.log("   Message ID:", info.messageId);
+    console.log("✅ Email sent successfully to:", process.env.EMAIL);
   } catch (error) {
     console.error("❌ Email failed:", error.message);
   }
