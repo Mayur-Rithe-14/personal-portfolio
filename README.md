@@ -56,7 +56,8 @@ This portfolio website serves as a central place to showcase my development work
 - VS Code
 - Postman
 
-**Email Service**
+### Email Service
+
 - Resend (for contact form emails)
 
 ---
