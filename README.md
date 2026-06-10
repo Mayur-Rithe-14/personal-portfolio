@@ -271,17 +271,13 @@ npm run build
 
 ## 📸 Screenshots
 
-![Hero Section](screenshots/Hero-Section.png)
-_Hero section with introduction, name, and call-to-action button._
+### ![Hero Section](screenshots/Hero-Section.png)
 
-![Project Section](screenshots/Project-Section.png)
-_Horizontal projects slider with navigation controls and project cards._
+### ![Project Section](screenshots/Project-Section.png)
 
-![Skill Section](screenshots/Skill-Section.png)
-_Categorized skills section showing frontend and backend technologies._
+### ![Skill Section](screenshots/Skill-Section.png)
 
-![Contact Section](screenshots/Contact-Section.png)
-_Contact form with message input and email notification support._
+### ![Contact Section](screenshots/Contact-Section.png)
 
 ---
 
