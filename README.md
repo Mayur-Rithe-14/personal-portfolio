@@ -215,6 +215,8 @@ cd client
 npm run build
 ```
 
+---
+
 ## 📡 API Endpoints
 
 ### Projects
@@ -269,12 +271,17 @@ npm run build
 
 ## 📸 Screenshots
 
-| Section  | Description                                       |
-| -------- | ------------------------------------------------- |
-| Home     | Hero section with introduction and call-to-action |
-| Projects | Horizontal slider showcasing portfolio projects   |
-| Skills   | Categorized tech stack with icons                 |
-| Contact  | Form with real-time email notifications           |
+![Hero Section](screenshots/Hero-Section.png)
+_Hero section with introduction, name, and call-to-action button._
+
+![Project Section](screenshots/Project-Section.png)
+_Horizontal projects slider with navigation controls and project cards._
+
+![Skill Section](screenshots/Skill-Section.png)
+_Categorized skills section showing frontend and backend technologies._
+
+![Contact Section](screenshots/Contact-Section.png)
+_Contact form with message input and email notification support._
 
 ---
 
