@@ -2,15 +2,21 @@
 
 A modern full-stack portfolio website built with the MERN stack to showcase my projects, technical skills, and web development journey.
 
+---
+
 ## 🌐 Live Demo
 
 🔗 **Live Website:** https://personal-portfolio-1-cqic.onrender.com
+
+---
 
 ## 📖 Overview
 
 This portfolio website serves as a central place to showcase development work, technical skills, and contact information. It features a responsive user interface, dynamic project management with a horizontal slider, skills categorization, and a backend API powered by Node.js, Express, and MongoDB.
 
 The site includes real-time email notifications for contact form submissions and a modern, engaging UI/UX design.
+
+---
 
 ## ✨ Features
 
@@ -26,6 +32,8 @@ The site includes real-time email notifications for contact form submissions and
 - ✅ Image Hover Effects — Interactive image zoom on hover
 - ✅ Smooth Animations — Slide transitions and fade-in effects
 - ✅ Mobile-First Approach — Works seamlessly on all devices
+
+---
 
 ## 🛠️ Tech Stack
 
@@ -61,6 +69,8 @@ The site includes real-time email notifications for contact form submissions and
 ### Deployment
 
 - Render — Frontend and backend hosting
+
+---
 
 ## 📂 Project Structure
 
@@ -117,6 +127,8 @@ portfolio-website
 │
 └── README.md
 ```
+
+---
 
 ## 🚀 Getting Started
 
@@ -226,6 +238,8 @@ npm run build
 
 - `GET /api/health` — Server health check
 
+---
+
 ## 🎨 Key Features Explained
 
 ### Horizontal Projects Slider
@@ -251,6 +265,8 @@ npm run build
 - Optimized for all screen sizes
 - Touch-friendly buttons and interactions
 
+---
+
 ## 📸 Screenshots
 
 | Section  | Description                                       |
@@ -260,6 +276,8 @@ npm run build
 | Skills   | Categorized tech stack with icons                 |
 | Contact  | Form with real-time email notifications           |
 
+---
+
 ## 🔧 Setup Instructions for Resend
 
 1. Visit [Resend.com](https://resend.com)
@@ -267,6 +285,8 @@ npm run build
 3. Create an API key in the dashboard
 4. Copy the API key (format: `re_xxxxxxxxxxxxx`)
 5. Add it to your server `.env` as `RESEND_API_KEY`
+
+---
 
 ## 📋 Environment Variables
 
@@ -287,6 +307,8 @@ npm run build
 | -------------- | --------------- | ------------------------- |
 | `VITE_API_URL` | Backend API URL | `https://api.example.com` |
 
+---
+
 ## 🚀 Deployment
 
 ### Deploy Frontend (Render)
@@ -306,6 +328,8 @@ npm run build
 5. Add all environment variables
 6. Deploy
 
+---
+
 ## 🎯 Future Enhancements
 
 - 🌙 Dark/Light theme toggle
@@ -318,6 +342,8 @@ npm run build
 - 🤖 SEO optimization
 - 📊 Analytics integration
 - 💬 Real-time chat support
+
+---
 
 ## 🐛 Troubleshooting
 
@@ -339,6 +365,8 @@ npm run build
 - Ensure IP whitelist includes Render IP
 - Verify MongoDB Atlas cluster is active
 
+---
+
 ## 📚 Additional Resources
 
 - MERN Stack Guide
@@ -348,6 +376,8 @@ npm run build
 - Resend Documentation
 - Render Deployment Guide
 
+---
+
 ## 👨‍💻 Author
 
 Mayur Rithe
@@ -355,6 +385,8 @@ Mayur Rithe
 - GitHub: [Mayur-Rithe-14](https://github.com/Mayur-Rithe-14)
 - Email: mayurrithe2004@gmail.com
 - Portfolio: https://personal-portfolio-1-cqic.onrender.com
+
+---
 
 ## ⭐ Support
 
@@ -365,9 +397,7 @@ If you like this project, please consider:
 - 💬 Providing feedback and suggestions
 - 🐛 Reporting issues
 
-## 📄 License
-
-This project is licensed under the MIT License — see the `LICENSE` file for details.
+---
 
 ## 🙏 Acknowledgments
 
