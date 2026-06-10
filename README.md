@@ -271,13 +271,21 @@ npm run build
 
 ## 📸 Screenshots
 
-### ![Hero Section](screenshots/Hero-Section.png)
+### Home Page
 
-### ![Project Section](screenshots/Project-Section.png)
+![Hero Section](screenshots/Hero-Section.png)
 
-### ![Skill Section](screenshots/Skill-Section.png)
+### Project Section
 
-### ![Contact Section](screenshots/Contact-Section.png)
+![Project Section](screenshots/Project-Section.png)
+
+### Skill Section
+
+![Skill Section](screenshots/Skill-Section.png)
+
+### Contact Section
+
+![Contact Section](screenshots/Contact-Section.png)
 
 ---
 
