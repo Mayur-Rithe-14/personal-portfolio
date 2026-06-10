@@ -161,11 +161,6 @@
   transition: transform 0.3s ease;
 }
 
-.project-card:hover .project-image img {
-  border-radius: 16px;
-  transform: scale(1.05);
-}
-
 .project-image .project-overlay {
   position: absolute;
   top: 0;
@@ -239,11 +234,10 @@
 .tech-tag {
   display: inline-block;
   padding: 6px 14px;
-  background: rgba(124, 58, 237, 0.15);
-  border: 1px solid var(--primary);
+  border: 1px solid var(--border);
   border-radius: 20px;
   font-size: 0.8rem;
-  color: var(--primary);
+  color: rgb(187, 184, 184);
   transition: all 0.3s ease;
 }
 
@@ -252,38 +246,48 @@
   color: white;
 }
 
-/* Project Links */
+/* Project Links - Modern Button Design */
 .project-links {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .project-link {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
+  gap: 8px;
+  padding: 10px 18px;
   background: transparent;
-  border: 1px solid var(--primary);
-  color: var(--primary);
-  border-radius: 8px;
+  border: 1.5px solid var(--primary);
+  color: #fff;
+  border-radius: 6px;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .project-link:hover {
   background: var(--primary);
   color: white;
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.35);
+}
+
+.project-link:active {
+  transform: translateY(0);
 }
 
 .project-link svg {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
 }
 
 /* Pagination Dots */
@@ -398,12 +402,17 @@
   }
 
   .project-links {
-    gap: 8px;
+    gap: 12px;
   }
 
   .project-link {
-    padding: 6px 12px;
-    font-size: 0.8rem;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+
+  .project-link svg {
+    width: 16px;
+    height: 16px;
   }
 
   .slider-container {
@@ -430,6 +439,15 @@
     height: 40px;
     font-size: 16px;
     border-width: 1px;
+  }
+
+  .project-links {
+    gap: 10px;
+  }
+
+  .project-link {
+    padding: 8px 12px;
+    font-size: 0.85rem;
   }
 }
 
@@ -482,7 +500,18 @@
   }
 
   .project-links {
+    gap: 8px;
     flex-wrap: wrap;
+  }
+
+  .project-link {
+    padding: 7px 11px;
+    font-size: 0.8rem;
+  }
+
+  .project-link svg {
+    width: 15px;
+    height: 15px;
   }
 
   .nav-btn {
@@ -500,5 +529,10 @@
 
   .slider-controls {
     gap: 8px;
+  }
+
+  .project-link {
+    padding: 6px 10px;
+    font-size: 0.75rem;
   }
 }
