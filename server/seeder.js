@@ -31,7 +31,7 @@ const projects = [
     title: "Personal Portfolio",
     description:
       "This portfolio website serves as a central place to showcase development work, technical skills, and contact information. It features a responsive user interface, dynamic project management with a horizontal slider, skills categorization, and a backend API powered by Node.js, Express, and MongoDB. The site includes real-time email notifications for contact form submissions and a modern, engaging UI/UX design.",
-    image: "/images/wanderlust.png",
+    image: "/images/personal-portfolio.png",
     technologies: [
       "React.js",
       "JavaScript (ES6+)",
