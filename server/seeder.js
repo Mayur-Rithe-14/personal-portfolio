@@ -52,6 +52,31 @@ const projects = [
     liveLink: "https://wanderlust-by-mayur.onrender.com",
     githubLink: "https://github.com/Mayur-Rithe-14/wanderlust-app",
   },
+  {
+    title: "Personal Portfolio",
+    description:
+      "This portfolio website serves as a central place to showcase development work, technical skills, and contact information. It features a responsive user interface, dynamic project management with a horizontal slider, skills categorization, and a backend API powered by Node.js, Express, and MongoDB. The site includes real-time email notifications for contact form submissions and a modern, engaging UI/UX design.",
+    image: "/images/wanderlust.png",
+    technologies: [
+      "React.js",
+      "JavaScript (ES6+)",
+      "CSS3",
+      "React Icons",
+      "Vite",
+      "Node.js",
+      "Express.js",
+      "Mongoose",
+      "MongoDB Atlas",
+      "Resend",
+      "Git & GitHub",
+      "VS Code",
+      "Postman",
+      "Render ",
+      "vercel",
+    ],
+    liveLink: "https://personal-portfolio-1-cqic.onrender.com",
+    githubLink: "https://github.com/Mayur-Rithe-14/personal-portfolio",
+  },
 ];
 
 const skills = [
@@ -79,6 +104,8 @@ const skills = [
   {name: "GitHub", category: "Tools", proficiency: "Advanced"},
   {name: "Postman", category: "Tools", proficiency: "Intermediate"},
   {name: "VS Code", category: "Tools", proficiency: "Expert"},
+  {name: "Render", category: "Tools", proficiency: "Expert"},
+  {name: "Vercel", category: "Tools", proficiency: "Intermediate"},
 
   {name: "C", category: "Languages", proficiency: "Intermediate"},
   {name: "C++", category: "Languages", proficiency: "Intermediate"},
