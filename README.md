@@ -4,7 +4,7 @@ A modern full-stack portfolio website built with the MERN stack to showcase my p
 
 ## 🌐 Live Demo
 
-[Live Website](https://personal-portfolio-1-cqic.onrender.com)
+- Live Website: (https://personal-portfolio-1-cqic.onrender.com)
 
 ## 📖 Overview
 
