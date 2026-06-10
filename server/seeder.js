@@ -28,31 +28,6 @@ const projects = [
     githubLink: "https://github.com/Mayur-Rithe-14/todo-app",
   },
   {
-    title: "Wanderlust Travel Website",
-    description:
-      "A full-stack Airbnb-inspired web application that allows users to discover, create, manage, and review accommodation listings. The application provides secure authentication, image uploads, listing management, and a responsive user experience similar to modern vacation rental platforms.",
-    image: "/images/wanderlust.png",
-    technologies: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Bootstrap",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "Mongoose",
-      "EJS",
-      "Passport.js",
-      "Passport Local Strategy",
-      "Express Session",
-      "Multer",
-      "Cloudinary",
-      "Multer Storage Cloudinary",
-    ],
-    liveLink: "https://wanderlust-by-mayur.onrender.com",
-    githubLink: "https://github.com/Mayur-Rithe-14/wanderlust-app",
-  },
-  {
     title: "Personal Portfolio",
     description:
       "This portfolio website serves as a central place to showcase development work, technical skills, and contact information. It features a responsive user interface, dynamic project management with a horizontal slider, skills categorization, and a backend API powered by Node.js, Express, and MongoDB. The site includes real-time email notifications for contact form submissions and a modern, engaging UI/UX design.",
@@ -76,6 +51,31 @@ const projects = [
     ],
     liveLink: "https://personal-portfolio-1-cqic.onrender.com",
     githubLink: "https://github.com/Mayur-Rithe-14/personal-portfolio",
+  },
+  {
+    title: "Wanderlust Travel Website",
+    description:
+      "A full-stack Airbnb-inspired web application that allows users to discover, create, manage, and review accommodation listings. The application provides secure authentication, image uploads, listing management, and a responsive user experience similar to modern vacation rental platforms.",
+    image: "/images/wanderlust.png",
+    technologies: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Bootstrap",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Mongoose",
+      "EJS",
+      "Passport.js",
+      "Passport Local Strategy",
+      "Express Session",
+      "Multer",
+      "Cloudinary",
+      "Multer Storage Cloudinary",
+    ],
+    liveLink: "https://wanderlust-by-mayur.onrender.com",
+    githubLink: "https://github.com/Mayur-Rithe-14/wanderlust-app",
   },
 ];
 
