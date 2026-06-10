@@ -17,7 +17,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="container navbar-container">
         <div className="navbar-logo">
-          <h2>Mayur.</h2>
+          <h2>MR.</h2>
         </div>
 
         <div className={`navbar-menu ${isOpen ? "active" : ""}`}>
