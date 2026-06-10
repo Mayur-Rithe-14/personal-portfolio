@@ -56,7 +56,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="contact">
+    <section id="contact" className="contact" data-aos="fade-up">
       <div className="container">
         <h2>
           Get In Touch

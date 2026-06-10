@@ -25,7 +25,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="hero">
+    <section id="home" className="hero" data-aos="fade-up">
       <div className="container hero-container">
         <div className="hero-content">
           <div

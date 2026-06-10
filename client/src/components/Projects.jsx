@@ -42,7 +42,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="projects">
+    <section id="projects" className="projects" data-aos="fade-up">
       <div className="container">
         <div className="projects-header">
           <h2>
@@ -66,7 +66,11 @@ export default function Projects() {
                       index === currentSlide ? "active" : ""
                     }`}
                   >
-                    <div className="project-card">
+                    <div
+                      className="project-card"
+                      data-aos="flip-left"
+                      data-aos-delay="200"
+                    >
                       <div className="project-image">
                         <img
                           src={project.image || "/images/default.png"}

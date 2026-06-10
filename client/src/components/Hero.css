@@ -59,12 +59,9 @@
   font-size: 4.5rem;
   font-weight: 900;
   line-height: 1.1;
-
   background: linear-gradient(90deg, #ffffff, #c084fc, #7c3aed);
-
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
   margin-bottom: 15px;
 }
 
@@ -165,6 +162,7 @@
   display: flex;
   align-items: center;
   gap: 15px;
+  flex-wrap: wrap;
   animation: fadeInUp 0.8s ease-out 0.5s both;
 }
 
@@ -172,6 +170,7 @@
   color: var(--text-secondary);
   font-weight: 500;
   font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .socials-icons {
@@ -364,7 +363,27 @@
     text-align: center;
   }
 
+  .hero-socials {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .socials-label {
+    width: 100%;
+    font-size: 1.02rem;
+    white-space: normal;
+    text-align: center;
+  }
+
   .socials-icons {
-    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  .social-link {
+    width: 44px;
+    height: 44px;
   }
 }

@@ -95,7 +95,7 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="skills">
+    <section id="skills" className="skills" data-aos="fade-left">
       <div className="container">
         <h2>
           Technologies I Work With
@@ -116,7 +116,11 @@ export default function Skills() {
                   style={{animationDelay: `${index * 0.1}s`}}
                 >
                   <h3>{category}</h3>
-                  <div className="skill-items">
+                  <div
+                    className="skill-items"
+                    data-aos="zoom-in"
+                    data-aos-delay="100"
+                  >
                     {skillList.map((skill) => (
                       <div key={skill._id} className="skill-item">
                         <span className="skill-icon">
