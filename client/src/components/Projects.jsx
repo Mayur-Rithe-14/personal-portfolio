@@ -8,8 +8,9 @@ import "./Projects.css";
 export default function Projects() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
   const sliderRef = useRef(null);
+  const projectsPerPage = 4; // 2x2 grid
 
   useEffect(() => {
     fetchProjects();
@@ -29,21 +30,34 @@ export default function Projects() {
     }
   };
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % projects.length);
+  // Get current page projects
+  const startIndex = currentPage * projectsPerPage;
+  const endIndex = startIndex + projectsPerPage;
+  const currentProjects = projects.slice(startIndex, endIndex);
+
+  // Calculate total pages
+  const totalPages = Math.ceil(projects.length / projectsPerPage);
+
+  const nextPage = () => {
+    if (currentPage < totalPages - 1) {
+      setCurrentPage((prev) => prev + 1);
+    }
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + projects.length) % projects.length);
+  const prevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage((prev) => prev - 1);
+    }
   };
 
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
+  const goToPage = (pageIndex) => {
+    setCurrentPage(pageIndex);
   };
 
   return (
     <section id="projects" className="projects" data-aos="fade-up">
       <div className="container">
+        {/* Centered Header with Top-Right Navigation */}
         <div className="projects-header">
           <h2>
             Some Things <span className="highlight">I've Built</span>
@@ -51,6 +65,26 @@ export default function Projects() {
               Here are a few projects I've worked on recently.
             </p>
           </h2>
+
+          {/* Navigation Controls - Top Right */}
+          {!loading && projects.length > 0 && (
+            <div className="slider-controls">
+              <button
+                className="nav-btn prev-btn"
+                onClick={prevPage}
+                disabled={currentPage === 0}
+              >
+                <IoChevronBack />
+              </button>
+              <button
+                className="nav-btn next-btn"
+                onClick={nextPage}
+                disabled={currentPage === totalPages - 1}
+              >
+                <IoChevronForward />
+              </button>
+            </div>
+          )}
         </div>
 
         {loading ? (
@@ -59,18 +93,14 @@ export default function Projects() {
           <>
             <div className="slider-container" ref={sliderRef}>
               <div className="slider-wrapper">
-                {projects.map((project, index) => (
+                {currentProjects.map((project, index) => (
                   <div
                     key={project._id || project.title}
-                    className={`slider-item ${
-                      index === currentSlide ? "active" : ""
-                    }`}
+                    className="slider-item"
+                    data-aos="flip-left"
+                    data-aos-delay={`${index * 100}`}
                   >
-                    <div
-                      className="project-card"
-                      data-aos="flip-left"
-                      data-aos-delay="200"
-                    >
+                    <div className="project-card">
                       <div className="project-image">
                         <img
                           src={project.image || "/images/default.png"}
@@ -99,15 +129,17 @@ export default function Projects() {
                       </div>
 
                       <div className="project-content">
-                        <h3>{project.title}</h3>
-                        <p>{project.description}</p>
+                        <div>
+                          <h3>{project.title}</h3>
+                          <p>{project.description}</p>
 
-                        <div className="project-tech">
-                          {project.technologies?.map((tech) => (
-                            <span key={tech} className="tech-tag">
-                              {tech}
-                            </span>
-                          ))}
+                          <div className="project-tech">
+                            {project.technologies?.slice(0, 4).map((tech) => (
+                              <span key={tech} className="tech-tag">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
                         </div>
 
                         <div className="project-links">
@@ -117,7 +149,7 @@ export default function Projects() {
                             rel="noopener noreferrer"
                             className="project-link"
                           >
-                            <FiExternalLink /> Live Demo
+                            <FiExternalLink /> Live
                           </a>
                           {project.githubLink && (
                             <a
@@ -126,7 +158,7 @@ export default function Projects() {
                               rel="noopener noreferrer"
                               className="project-link"
                             >
-                              <FiGithub /> GitHub
+                              <FiGithub /> Code
                             </a>
                           )}
                         </div>
@@ -137,26 +169,16 @@ export default function Projects() {
               </div>
             </div>
 
-            {/* Pagination Dots */}
-            <div className="pagination-dots">
-              {projects.map((_, index) => (
-                <button
-                  key={index}
-                  className={`dot ${index === currentSlide ? "active" : ""}`}
-                  onClick={() => goToSlide(index)}
-                />
-              ))}
-            </div>
-
-            {/* Navigation controls (moved below pagination dots) */}
-            {!loading && projects.length > 0 && (
-              <div className="slider-controls slider-controls-bottom">
-                <button className="nav-btn prev-btn" onClick={prevSlide}>
-                  <IoChevronBack />
-                </button>
-                <button className="nav-btn next-btn" onClick={nextSlide}>
-                  <IoChevronForward />
-                </button>
+            {/* Pagination Dots - Bottom Center */}
+            {totalPages > 1 && (
+              <div className="pagination-dots">
+                {Array.from({length: totalPages}).map((_, index) => (
+                  <button
+                    key={index}
+                    className={`dot ${index === currentPage ? "active" : ""}`}
+                    onClick={() => goToPage(index)}
+                  />
+                ))}
               </div>
             )}
           </>
