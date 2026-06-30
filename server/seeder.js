@@ -8,16 +8,6 @@ mongoose.connect(process.env.MONGODB_URI);
 
 const projects = [
   {
-    title: "Blogify – Blogging Platform",
-    description:
-      "A modern full-stack blogging platform where users can register, publish articles, upload images, manage profiles, comment on posts, and discover content through search.",
-    image: "/images/blogify.png",
-    technologies: ["React.js", "Node.js", "Express.js", "MongoDB"],
-    liveLink: "https://blog-website-git-main-mayur-rithe-s-projects.vercel.app",
-    githubLink: "https://github.com/Mayur-Rithe-14/blog-website",
-  },
-
-  {
     title: "Todo App",
     description:
       "Task management application with secure Passport.js authentication allowing users to track and manage personal tasks. Includes dark/light mode, search, and responsive design.",
@@ -35,6 +25,16 @@ const projects = [
     technologies: ["React.js", "Node.js", "Express.js", "MongoDB"],
     liveLink: "https://e-commerce-website-lnms.onrender.com",
     githubLink: "https://github.com/Mayur-Rithe-14/e-commerce-website",
+  },
+
+  {
+    title: "Blogify – Blogging Platform",
+    description:
+      "A modern full-stack blogging platform where users can register, publish articles, upload images, manage profiles, comment on posts, and discover content through search.",
+    image: "/images/blogify.png",
+    technologies: ["React.js", "Node.js", "Express.js", "MongoDB"],
+    liveLink: "https://blog-website-git-main-mayur-rithe-s-projects.vercel.app",
+    githubLink: "https://github.com/Mayur-Rithe-14/blog-website",
   },
 
   {
