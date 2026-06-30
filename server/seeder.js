@@ -18,6 +18,16 @@ const projects = [
   },
 
   {
+    title: "Wanderlust Travel Website",
+    description:
+      "Airbnb-inspired platform allowing users to discover, create, and manage accommodation listings with secure authentication. Includes image uploads and responsive user experience.",
+    image: "/images/wanderlust.png",
+    technologies: ["Node.js", "Express", "MongoDB", "EJS"],
+    liveLink: "https://wanderlust-by-mayur.onrender.com",
+    githubLink: "https://github.com/Mayur-Rithe-14/wanderlust-app",
+  },
+
+  {
     title: "E-Commerce Website",
     description:
       "A full-stack MERN e-commerce platform with secure user authentication, product browsing, shopping cart, order management, and an intuitive, responsive shopping experience.",
@@ -55,16 +65,6 @@ const projects = [
     technologies: ["React.js", "Node.js", "Express.js", "MongoDB"],
     liveLink: "https://blog-website-git-main-mayur-rithe-s-projects.vercel.app",
     githubLink: "https://github.com/Mayur-Rithe-14/blog-website",
-  },
-
-  {
-    title: "Wanderlust Travel Website",
-    description:
-      "Airbnb-inspired platform allowing users to discover, create, and manage accommodation listings with secure authentication. Includes image uploads and responsive user experience.",
-    image: "/images/wanderlust.png",
-    technologies: ["Node.js", "Express", "MongoDB", "EJS"],
-    liveLink: "https://wanderlust-by-mayur.onrender.com",
-    githubLink: "https://github.com/Mayur-Rithe-14/wanderlust-app",
   },
 ];
 
