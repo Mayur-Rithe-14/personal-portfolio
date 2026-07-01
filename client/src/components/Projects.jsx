@@ -97,8 +97,8 @@ export default function Projects() {
                   <div
                     key={project._id || project.title}
                     className="slider-item"
-                    data-aos="flip-left"
-                    data-aos-delay={`${index * 100}`}
+                    data-aos="zoom-in"
+                    data-aos-delay="100"
                   >
                     <div className="project-card">
                       <div className="project-image">
