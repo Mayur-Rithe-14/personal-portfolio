@@ -1,6 +1,8 @@
 // client/src/components/Projects.jsx
 
 import {useState, useEffect, useRef} from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import {FiExternalLink, FiGithub} from "react-icons/fi";
 import {IoChevronBack, IoChevronForward} from "react-icons/io5";
 import "./Projects.css";
@@ -13,8 +15,20 @@ export default function Projects() {
   const projectsPerPage = 4; // 2x2 grid
 
   useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: "ease-out-cubic",
+      once: false,
+    });
+
     fetchProjects();
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      AOS.refreshHard();
+    }, 50);
+  }, [currentPage]);
 
   const fetchProjects = async () => {
     try {
@@ -95,10 +109,12 @@ export default function Projects() {
               <div className="slider-wrapper">
                 {currentProjects.map((project, index) => (
                   <div
-                    key={project._id || project.title}
+                    key={`${currentPage}-${project._id || project.title}`}
                     className="slider-item"
-                    data-aos="zoom-in"
-                    data-aos-delay="100"
+                    data-aos="zoom-in-up"
+                    data-aos-duration="700"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-delay={index * 120}
                   >
                     <div className="project-card">
                       <div className="project-image">
