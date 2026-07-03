@@ -6,8 +6,6 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import GithubActivity from "./components/GithubActivity";
-
 import {useEffect} from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -27,7 +25,6 @@ function App() {
       <About />
       <Projects />
       <Skills />
-      <GithubActivity />
       <Contact />
       <Footer />
     </div>
